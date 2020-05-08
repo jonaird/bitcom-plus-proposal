@@ -23,7 +23,7 @@ The first is single letter options which are identified with a single dash and m
 ``` 
 These can be seen as shorthand for bool values. This sets a,b,c to true.  
  
-Second is named arguments. This would use a double dash and the push data afterwards would be the argument: 
+Second is named arguments. They go after positional arguments and would use a double dash and the push data afterwards is the argument: 
 ```
 [protocol prefix] 
 [positional arguments] 
@@ -70,7 +70,7 @@ var query = {
 Note that while I propose *not including* arguments in the "cell" array, you can reconstruct the original opreturn using the order of options and the 'ii' property of named arguments. 
  
 ## Considerations 
-Making these modifications to BOB may break applications that have already been using strings that start with a dash or double dash as push data and use BOB (if such applications exist). May be worthwhile to scan the blockchain for such cases to see if they would be an issue.
+Making these modifications to BOB may break applications that have already been using strings that start with a dash or double dash as push data and use BOB (if such applications exist). May be worthwhile to scan the blockchain for such cases to see if they would be an issue. 
  
 Please let me know what you think!
 
