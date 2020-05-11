@@ -28,30 +28,43 @@ Second is named arguments. They go after positional arguments and would use a do
 [protocol prefix] 
 [positional arguments] 
 --username 
-Jeffery
+Jeffrey
 ```  
  
 (it would probably be better to use camelcase instead of the standard dash for multi-word argument names as this makes it more robust in Javascript where JSON is interpreted as objects rather than maps with string keys)
 
-### Proposed modification to BOB  
-To fully harness these features, a small but powerful modification to BOB is proposed. Each cell that contains an argument or option now has an 'args' property in addition to 'cell' and 'i': 
+### Posibile modification to BOB  
+
+It would be possible to start using bitcom+ right away without any modifications to BOB you could for example have the following query: 
+```
+{
+  q:{
+    find:{
+      'out.tape.cell.s':'--username',
+      'out.tape.cell.s':'Jeffrey'
+}
+``` 
+this would work but would also include any transaction that had the username field and "Jeffery" in any push data (not necessarily the one corresponding to the username field.
+
+
+It would be possible to modify BOB to get only the transactions we really want. Each cell that contains an argument or option now has an 'args' property in addition to 'cell' and 'i': 
 ```
 {
   cell:[ 
   /* cell objects *not including* options and named arguments */
   ],
   i:1,
-  args:{
-    a:1,
-    b:1,
-    c:1,
-    username:{
+  args:[
+    {a:1},
+    {b:1},
+    {c:1},
+    {username:{
       b: [b64 encoded],
-      s: "Jeffery",
+      s: "Jeffrey",
       ii: 4,
       i: 3
-    }
-  }
+    }}
+  ]
 }
 ``` 
 
