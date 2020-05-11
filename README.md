@@ -75,7 +75,7 @@ This makes transactions with arguments exceptionally easy to query:
 var query = {
   q:{
     find:{
-      "out.tape.cell.args.b":1,
+      "out.tape.cell.options.b":1,
       "out.tape.cell.args.username.s:'Jeffrey'
     }
   }
