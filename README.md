@@ -47,17 +47,19 @@ It would be possible to start using bitcom+ right away without any modifications
 this would work but would also include any transaction that had the username field and "Jeffery" in any push data (not necessarily the one corresponding to the username field.
 
 
-It would be possible to modify BOB to get only the transactions we really want. Each cell that contains an argument or option now has an 'args' property in addition to 'cell' and 'i': 
+It would be possible to modify BOB to get only the transactions we really want. Each cell that contains an argument or option now has an 'args' property and an options property in addition to 'cell' and 'i': 
 ```
 {
   cell:[ 
   /* cell objects *not including* options and named arguments */
   ],
   i:1,
-  args:[
+  options:[
     {a:1},
     {b:1},
-    {c:1},
+    {c:1}
+  ],
+  args:[
     {username:{
       b: [b64 encoded],
       s: "Jeffrey",
